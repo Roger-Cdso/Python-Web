@@ -1,11 +1,32 @@
-from flask import Flask
+from flask import Flask, render_template
 
-app = Flask('meu app')
+
+app = Flask('Meu App')
+
+posts = [
+    {
+        'titulo':'primeira postagem',
+        'texto': 'teste1'
+
+    },
+    {
+        'titulo':'segunda postagem',
+        'texto': 'teste2'
+    }
+]
 
 @app.route('/')
-def ola():
-    return "ola mundo"
+def exibir_entradas():
+    entradas = posts #mock das postagens
+    return render_template('exibir_entradas.html',entradas=entradas)
 
-@app.route('/novo')
-def novo():
-    return "<h1>novo</h1>"
+
+
+
+
+
+
+
+
+
+
